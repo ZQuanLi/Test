@@ -1,0 +1,473 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using DBUtility;
+using YDS6000.Models;
+
+namespace YDS6000.DAL.DataProcess
+{
+    public class DataProcessDAL
+    {
+        private int Ledger = 0;
+        private int SysUid = 1;
+        public DataProcessDAL(int ledger, int uid)
+        {
+            this.Ledger = ledger;
+            this.SysUid = uid;
+        }
+
+        /// <summary>
+        /// 获取各种参数配置信息
+        /// </summary>
+        /// <param name="cfType"></param>
+        /// <returns></returns>
+        public DataTable GetSysConfig(string cfType)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select CfKey,CfType,CfValue,ifnull(Rule,'')as Rule from sys_config where Ledger=@Ledger");
+            if (!string.IsNullOrEmpty(cfType))
+                strSql.Append(" and CfType=@Cftype");
+            return SQLHelper.Query(strSql.ToString(), new { Ledger = this.Ledger , CfType = cfType });
+        }
+
+        /// <summary>
+        /// 获取回路采集点信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetMapInfo(string tagName)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select a.Ledger,a.Co_id,a.Module_id,a.ModuleAddr,a.Fun_id,a.FunType,c.LastVal,c.LastTime,a.TagName,a.IsChrg,a.FunName,a.LpszDbVarName as CachedKey,a.ModuleType,mp.MeterAddr,a.Action");
+            strSql.Append(" from vp_funinfo as a");
+            strSql.Append(" inner join vp_mdinfo as mp on a.Ledger=mp.Ledger and a.Module_id=mp.Module_id");
+            strSql.Append(" left join v2_info as c on a.Ledger=c.Ledger and a.Co_id=c.Co_id and a.Module_id=c.Module_id and a.ModuleAddr=c.ModuleAddr and a.Fun_id=c.Fun_id");
+            strSql.Append(" where a.Ledger=@Ledger");
+            if (!string.IsNullOrEmpty(tagName))
+            {
+                strSql.Append(" and a.TagName = @TagName");
+            }
+            return SQLHelper.Query(strSql.ToString(), new { Ledger = this.Ledger, TagName = tagName });
+        }
+
+
+
+        /// <summary>
+        /// 数据处理
+        /// </summary>
+        /// <param name="module_id">设备ID号</param>
+        /// <param name="moduleAddr">设备地址</param>
+        /// <param name="fun_id">功能ID号</param>
+        /// <param name="dataVal">采集数</param>
+        /// <param name="collectTime">采集时间</param>
+        /// <returns></returns>
+        public int DataProcess(int module_id, string moduleAddr, int fun_id, string dataVal, DateTime collectTime, out string msg,int? timeOut = null)
+        {
+            int errcode = 0;
+            object parmas = new { _mLedger = this.Ledger, _mModule_id = module_id, _mModuleAddr = moduleAddr, _mFun_id = fun_id, _mCollectTime = collectTime, _mDataVal = dataVal };
+            DataTable dtSource = SQLHelper.ExecuteStoredProcedure("sp_DataProcess", parmas, timeOut);
+            if (dtSource.Rows.Count == 0)
+            {
+                msg = "处理无结果返回";
+                return -1;
+            }
+            errcode = CommFunc.ConvertDBNullToInt32(dtSource.Rows[0]["ErrCode"]);
+            msg = CommFunc.ConvertDBNullToString(dtSource.Rows[0]["ErrTxt"]);
+            return errcode;
+        }
+
+        public int UpdataMap(int module_id, int fun_id, string lpszVal)
+        {
+            object params01 = new
+            {
+                Ledger = this.Ledger,
+                Module_id = module_id,
+                Fun_id = fun_id,
+                DataValue = lpszVal,
+                SysUid = this.SysUid,
+            };
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into v1_map(Ledger,Module_id,Fun_id,TagName,DataValue,Status,Rmk,Disabled,Update_by,Update_dt)");
+            strSql.Append("values(@Ledger,@Module_id,@Fun_id,'',@DataValue,1,'',0,@SysUid,now())");
+            strSql.Append("ON DUPLICATE KEY UPDATE Status=1,DataValue=@DataValue,Update_by=@SysUid,Update_dt=now()");
+            return SQLHelper.Execute(strSql.ToString(), params01);
+        }
+
+        /// <summary>
+        /// 更新采集命令
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="errCode"></param>
+        /// <param name="errTxt"></param>
+        /// <returns></returns>
+        public int UpdataCmd(CommandVModel cmd, int errCode, string errTxt)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update v2_command set CollectTime=@CollectTime, ErrCode=@ErrCode,ErrTxt=@ErrTxt,EndTime=now() where Log_id=@Log_id");
+            return SQLHelper.Execute(strSql.ToString(), new { Log_id = cmd.Log_id, CollectTime = cmd.CollectTime, ErrCode = errCode, ErrTxt = errTxt });
+        }
+        /// <summary>
+        /// 更新采集命令
+        /// </summary>
+        /// <param name="log_id"></param>
+        /// <returns></returns>
+        public int UpdataCmd(long log_id)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update v2_command set ErrCode=1,ErrTxt='',EndTime=now() where Log_id=@Log_id");
+            return SQLHelper.Execute(strSql.ToString(), new { Log_id = log_id });
+        }
+        /// <summary>
+        /// 下发命令
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="errCode"></param>
+        /// <param name="errTxt"></param>
+        /// <returns></returns>
+        //public long AddCmdLog(int module_id, int fun_id, string funType, DateTime collectTime, string dataValue, string descr, int errCode, string errTxt)
+        public long AddCmdLog(CommandVModel cmd, int errCode, string errTxt)
+        {
+            object params01 = new
+            {
+                Ledger = this.Ledger,
+                CDate = cmd.CollectTime,
+                Co_id = cmd.Co_id,
+                Module_id = cmd.Module_id,
+                ModuleAddr = cmd.ModuleAddr,
+                Fun_id = cmd.Fun_id,
+                FunType = cmd.FunType,
+                Action = cmd.Action,
+                DataValue = cmd.DataValue,
+                CollectTime = cmd.CollectTime,
+                Descr = cmd.Descr,
+                ErrCode = errCode,
+                ErrTxt = errTxt,
+                Create_by = cmd.Create_by,
+                Create_dt = cmd.Create_dt,
+                IsRn = cmd.IsRn,
+            };
+            StringBuilder strSql = new StringBuilder();
+            strSql.Clear();
+            strSql.Append("insert into v2_command(");
+            strSql.Append("CDate,Ledger,Co_id,Module_id,ModuleAddr,Fun_id,FunType,Action,DataValue,CollectTime,Create_by,Create_dt,ErrCode,ErrTxt,EndTime,Descr,IsRn)");
+            strSql.Append("values(@CDate,@Ledger,@Co_id,@Module_id,@ModuleAddr,@Fun_id,@FunType,@Action,@DataValue,@CollectTime,@Create_by,@Create_dt,@ErrCode,@ErrTxt,now(),@Descr,@IsRn);");
+            //strSql.Append(" from vp_mdinfo as a");
+            //strSql.Append(" where a.Ledger=@Ledger and a.Module_id=@Module_id;");
+            strSql.Append("select last_insert_id();");
+            object obj = SQLHelper.ExecuteScalar(strSql.ToString(), params01);
+            return CommFunc.ConvertDBNullToLong(obj);
+        }
+
+        public int AddAlarmOnCollect(int co_id, int module_id, string moduleAddr, string aType, int fun_id, string content, int errCode, string errTxt, DateTime collectTime)
+        {
+            object params01 = new
+            {
+                CDate = DateTime.Now.AddMonths(-3).ToString("yyyy-MM-dd", System.Globalization.DateTimeFormatInfo.InvariantInfo),
+                Ledger = this.Ledger,
+                Co_id = co_id,
+                Module_id = module_id,
+                ModuleAddr = moduleAddr,
+                AType = aType,
+                CollectTime = collectTime
+            };
+            StringBuilder strSql = new StringBuilder();
+            strSql.Clear();
+            strSql.Append("select Log_id from v2_alarm_log");
+            strSql.Append(" where CDate>=@CDate and Ledger=@Ledger and Co_id=@Co_id and Module_id=@Module_id and ModuleAddr=@ModuleAddr and AType=@AType and CollectTime=@CollectTime order by Log_id  limit 1");//CDate=@CDate and
+            object obj = SQLHelper.ExecuteScalar(strSql.ToString(), params01);
+            long log_id = CommFunc.ConvertDBNullToLong(obj);
+            object params02 = new
+            {
+                Log_id= log_id,
+                CDate = DateTime.Now.ToString("yyyy-MM-dd", System.Globalization.DateTimeFormatInfo.InvariantInfo),
+                Ledger = this.Ledger,
+                Co_id = co_id,
+                Module_id = module_id,
+                ModuleAddr = moduleAddr,
+                AType = aType,               
+                CollectTime = collectTime,
+                Fun_id = fun_id,
+                Content = content,
+                ErrCode = errCode,
+                ErrTxt = errTxt,
+            };
+            if (log_id == 0)
+            {
+                strSql.Clear();
+                strSql.Append("insert into v2_alarm_log(");
+                strSql.Append("CDate,Ledger,Co_id,Module_id,ModuleAddr,AType,Fun_id,Content,CTime,CollectTime,ErrCode,ErrTxt)");
+                strSql.Append(" values (");
+                strSql.Append("@CDate,@Ledger,@Co_id,@Module_id,@ModuleAddr,@AType,@Fun_id,@Content,now(),@CollectTime,@ErrCode,@ErrTxt)");
+                return SQLHelper.Execute(strSql.ToString(), params02);
+            }
+            else
+            {
+                strSql.Clear();
+                strSql.Append("update v2_alarm_log set Content=@Content,ErrCode=@ErrCode,ErrTxt=@ErrTxt where Log_id=@Log_id");
+                return SQLHelper.Execute(strSql.ToString(), params02);
+            }
+        }
+        /// <summary>
+        ///  增加告警
+        /// </summary>
+        public long AddAlarm(int co_id, int module_id, string moduleAddr, string aType, int fun_id, string content, int errCode, string errTxt, string collectValue, DateTime collectTime)
+        {
+            object parmas01 = new { CDate = collectTime.ToString("yyyy-MM-dd", System.Globalization.DateTimeFormatInfo.InvariantInfo),
+                Ledger = this.Ledger,
+                Co_id = co_id,
+                Module_id = module_id,
+                ModuleAddr = moduleAddr,
+                AType = aType,
+                Fun_id = fun_id,
+            };
+            StringBuilder strSql = new StringBuilder();
+            strSql.Clear();
+            strSql.Append("select Log_id");
+            strSql.Append(" from v2_alarm_log");
+            strSql.Append(" where CDate=@CDate");
+            strSql.Append(" and Ledger=@Ledger and Co_id=@Co_id and Module_id=@Module_id and ModuleAddr=@ModuleAddr and AType=@AType and Fun_id=@Fun_id");
+            strSql.Append(" order by Log_id desc limit 1");
+            object obj = SQLHelper.ExecuteScalar(strSql.ToString(), parmas01);
+            long log_id = CommFunc.ConvertDBNullToLong(obj);
+            //
+            object parmas02 = new
+            {
+                Log_id = log_id,
+                CDate = collectTime.ToString("yyyy-MM-dd", System.Globalization.DateTimeFormatInfo.InvariantInfo),
+                Ledger = this.Ledger,
+                Co_id = co_id,
+                Module_id = module_id,
+                ModuleAddr = moduleAddr,
+                AType = aType,
+                Fun_id = fun_id,
+                Content = content,
+                CollectTime = collectTime,
+                CollectValue = collectValue,
+                ErrCode = errCode,
+                ErrTxt = errTxt,
+            };
+            //
+            if (log_id == 0)
+            {
+                strSql.Clear();
+                strSql.Append("insert into v2_alarm_log(");
+                strSql.Append("CDate,Ledger,Co_id,Module_id,ModuleAddr,AType,Fun_id,Content,CTime,CollectTime,CollectValue,ErrCode,ErrTxt,Total)");
+                strSql.Append(" values (");
+                strSql.Append("now(),@Ledger,@Co_id,@Module_id,@ModuleAddr,@AType,@Fun_id,@Content,now(),@CollectTime,@CollectValue,@ErrCode,@ErrTxt,1);");
+                strSql.Append("select last_insert_id();");
+                log_id = CommFunc.ConvertDBNullToLong(SQLHelper.ExecuteScalar(strSql.ToString(), parmas02));
+            }
+            else
+            {
+                strSql.Clear();
+                strSql.Append("update v2_alarm_log set ErrCode=@ErrCode,ErrTxt=@ErrTxt,CollectTime=@CollectTime,CollectValue=@CollectValue,Total=Total+1 where Log_id=@Log_id");
+                SQLHelper.Execute(strSql.ToString(), parmas02);
+            }
+            return log_id;
+        }
+
+        public v2_alarm_logHandVModel GetAlarmHand(long log_id, string hdType)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Clear();
+            strSql.Append("select Log_id,Aid,HdType,Content,Create_dt,ErrCode,ErrTxt,HdTime");
+            strSql.Append(" from v2_alarm_log_hand");
+            strSql.Append(" where Log_id=@Log_id and HdType=@HdType order by Aid desc limit 1");
+            DataTable dtSource = SQLHelper.Query(strSql.ToString(), new { Log_id = log_id, HdType = hdType });
+            v2_alarm_logHandVModel hand = new v2_alarm_logHandVModel() { Log_id = log_id, Aid = 0, HdType = hdType };
+            if (dtSource.Rows.Count > 0)
+                hand = ModelHandler<v2_alarm_logHandVModel>.FillModel(dtSource.Rows[0]);
+            return hand;
+        }
+
+        public DataTable GetSendInfo(int module_id)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select a.CrmName,a.MPhone,a.Email,c.CoName,d.ModuleName");
+            strSql.Append(" from v3_user as a inner join v3_userinfo as b on a.Ledger=b.Ledger and a.Crm_id=b.Crm_id");
+            strSql.Append(" inner join vp_coinfo as c on b.Ledger=c.Ledger and b.Co_id=c.Co_id");
+            strSql.Append(" inner join vp_mdinfo as d on c.Ledger=d.Ledger and c.Co_id=d.Co_id");
+            strSql.Append(" where a.Ledger=@Ledger and d.Module_id=@Module_id ");
+            return SQLHelper.Query(strSql.ToString(), new { Ledger = this.Ledger, Module_id = module_id });
+        }
+
+        public int UpAlarmHand(v2_alarm_logHandVModel hand)
+        {
+            StringBuilder strSql = new StringBuilder();
+            if (hand.Aid == 0)
+            {
+                strSql.Clear();
+                strSql.Append("select max(Aid)as mkey from v2_alarm_log_hand where Log_id=@Log_id");
+                object obj = SQLHelper.ExecuteScalar(strSql.ToString(), new { Log_id = hand.Log_id });
+                hand.Aid = CommFunc.ConvertDBNullToInt32(obj) + 1;
+            }
+            strSql.Clear();
+            strSql.Append("insert into v2_alarm_log_hand(Log_id,Aid,HdType,Content,Create_by,Create_dt,ErrCode,ErrTxt,HdTime)");
+            strSql.Append("values(@Log_id,@Aid,@HdType,@Content,@SysUid,now(),@ErrCode,@ErrTxt,now())");
+            strSql.Append(" ON DUPLICATE KEY UPDATE Content=@Content,ErrCode=@ErrCode,ErrTxt=@ErrTxt,HdTime=now()");
+            return SQLHelper.Execute(strSql.ToString(), new { Log_id = hand.Log_id, Aid = hand.Aid, HdType = hand.HdType, Content = hand.Content, SysUid = this.SysUid, ErrCode = hand.ErrCode, ErrTxt = hand.ErrTxt });
+        }
+
+        /// <summary>
+        /// 获取采集电量及剩余电量信息
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <returns></returns>
+        public DataTable GetArmAndRdVal(int module_id, string moduleAddr)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select b.RdVal,b.LastTime as RdTime,c.LastVal as MRdVal,c.LastTime as MRdTime,b.ZsVal");
+            strSql.Append(" from vp_mdinfo as a inner join vp_v2info as b on a.Ledger=b.Ledger and a.Module_id=b.Module_id and a.ModuleAddr=b.ModuleAddr and a.Co_id=b.Co_id and b.FunType=@E");
+            strSql.Append(" inner join vp_v2info as c on a.Ledger=c.Ledger and a.Module_id=c.Module_id and a.ModuleAddr=c.ModuleAddr and a.Co_id=c.Co_id and c.FunType=@RdVal");
+            strSql.Append(" where a.Ledger=@Ledger and a.Module_id=@Module_id and a.ModuleAddr=@ModuleAddr");
+            return SQLHelper.Query(strSql.ToString(), new { Ledger = this.Ledger, Module_id = module_id, ModuleAddr = moduleAddr, E = V0Fun.E.ToString(), RdVal = V0Fun.RdVal.ToString() });
+        }
+
+
+        /// <summary>
+        /// 获取采集电量及剩余电量信息
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <returns></returns>
+        public DataTable GetArmAndRdVal2(int module_id, string moduleAddr)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select b.RdVal,b.LastTime as RdTime,c.LastVal as MRdVal,c.LastTime as MRdTime,b.SyZsVal");
+            strSql.Append(" from vp_mdinfo as a inner join vp_v2info as b on a.Ledger=b.Ledger and a.Module_id=b.Module_id and a.ModuleAddr=b.ModuleAddr and a.Co_id=b.Co_id and b.FunType=@E");
+            strSql.Append(" left join vp_v2info as c on a.Ledger=c.Ledger and a.Module_id=c.Module_id and a.ModuleAddr=c.ModuleAddr and a.Co_id=c.Co_id and c.FunType=@RdVal");
+            strSql.Append(" where a.Ledger=@Ledger and a.Module_id=@Module_id and a.ModuleAddr=@ModuleAddr");
+            return SQLHelper.Query(strSql.ToString(), new { Ledger = this.Ledger, Module_id = module_id, ModuleAddr = moduleAddr, E = V0Fun.E.ToString(), RdVal = V0Fun.RdVal.ToString() });
+        }
+
+        /// <summary>
+        /// 增加设备充值命令到数据库中
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <param name="payVal"></param>
+        /// <returns></returns>
+        public long AddPayCommmand(int module_id, string moduleAddr, decimal payVal )
+        {
+            if (payVal == 0) return 0;
+            V0Fun funType = payVal > 0 ? V0Fun.Pay : V0Fun.Refund;
+            StringBuilder strSql = new StringBuilder();
+            strSql.Clear();
+            strSql.Append("insert into v2_command(");
+            strSql.Append("CDate,Ledger,Co_id,Module_id,ModuleAddr,Fun_id,FunType,DataValue,Create_by,Create_dt,ErrCode)");
+            strSql.Append("select now(),a.Ledger,a.Co_id,a.Module_id,a.ModuleAddr,ifnull(b.Fun_id,0),@FunType,@DataValue,@SysUid,now(),0");
+            strSql.Append(" from vp_mdinfo as a left join v0_fun as b on a.Ledger=b.Ledger and a.Mm_id=b.Mm_id and b.FunType=@FunType");
+            strSql.Append(" where a.Ledger=@Ledger and a.Module_id=@Module_id and a.ModuleAddr=@ModuleAddr;");
+            strSql.Append("select last_insert_id();");
+            object obj = SQLHelper.ExecuteScalar(strSql.ToString(), new { Ledger = this.Ledger, Module_id = module_id, ModuleAddr = moduleAddr, DataValue = Math.Abs(payVal).ToString(), FunType = funType.ToString(), SysUid = this.SysUid });
+            return CommFunc.ConvertDBNullToLong(obj);
+        }
+
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <param name="useVal"></param>
+        /// <returns></returns>
+        public int UpdateV2FirstVal(int module_id, string moduleAddr, decimal useVal)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Clear();
+            strSql.Append("update v2_info as a inner join vp_funinfo as b on a.Ledger=b.Ledger and a.Module_id=b.Module_id and a.ModuleAddr=b.ModuleAddr and a.Co_id=b.Co_id and a.Fun_id=b.Fun_id and b.FunType=@FunType");
+            strSql.Append(" set a.FirstVal=a.FirstVal-(@DataValue),a.InVal=InVal+(@DataValue),a.Update_by=@SysUid,a.Update_dt=now()");
+            strSql.Append(" where a.Ledger=@Ledger and a.Module_id=@Module_id and a.ModuleAddr=@ModuleAddr");
+            return SQLHelper.Execute(strSql.ToString(), new { Ledger = this.Ledger, Module_id = module_id, ModuleAddr = moduleAddr, DataValue = useVal, FunType = V0Fun.E.ToString(), SysUid = this.SysUid });
+        }
+
+        /// <summary>
+        /// 增加设备充值命令到数据库中
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <param name="payVal"></param>
+        /// <returns></returns>
+        public long AddPayCommmand(int module_id, string moduleAddr, decimal payVal, V0Fun funType)
+        {        
+            StringBuilder strSql = new StringBuilder();
+            strSql.Clear();
+            strSql.Append("insert into v2_command(");
+            strSql.Append("CDate,Ledger,Co_id,Module_id,ModuleAddr,Fun_id,FunType,DataValue,Create_by,Create_dt,ErrCode)");
+            strSql.Append("select now(),a.Ledger,a.Co_id,a.Module_id,a.ModuleAddr,ifnull(b.Fun_id,0),@FunType,@DataValue,@SysUid,now(),0");
+            strSql.Append(" from vp_mdinfo as a left join v0_fun as b on a.Ledger=b.Ledger and a.Mm_id=b.Mm_id and b.FunType=@FunType");
+            strSql.Append(" where a.Ledger=@Ledger and a.Module_id=@Module_id and a.ModuleAddr=@ModuleAddr;");
+            strSql.Append("select last_insert_id();");
+            object obj = SQLHelper.ExecuteScalar(strSql.ToString(), new { Ledger = this.Ledger, Module_id = module_id, ModuleAddr = moduleAddr, DataValue = Math.Abs(payVal).ToString(), FunType = funType.ToString(), SysUid = this.SysUid });
+            return CommFunc.ConvertDBNullToLong(obj);
+        }
+        /// <summary>
+        /// 获取命令
+        /// </summary>
+        /// <param name="log_id"></param>
+        /// <returns></returns>
+        public CommandVModel GetCommmand(long log_id)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select a.Log_id,a.Esp_id,a.EspAddr,a.ComPort,a.Baud,a.DataBit,a.Parity,a.StopBit,a.Ip, a.TcpPort, a.TimeOut, a.HandledBY, a.ModuleType, a.ModulePwd, a.ModuleUid,");
+            strSql.Append("a.TransferType, a.Module_id, a.ModuleAddr, a.Fun_id, a.FunName, a.FunType,");
+            strSql.Append("a.Protocol, a.DataValue, a.Co_id, a.Action, a.LpszDbVarName");
+            strSql.Append(" from vp_cmdinfo as a");
+            strSql.Append(" where Log_id =@Log_id");
+            DataTable dtSource = SQLHelper.Query(strSql.ToString(), new { Log_id = log_id });
+            CommandVModel cmd = null;
+            if (dtSource.Rows.Count > 0)
+                cmd = ModelHandler<CommandVModel>.FillModel(dtSource.Rows[0]);
+            return cmd;
+        }
+
+        public DataTable GetIsQiFei(int module_id)
+        {
+            StringBuilder strSql = new StringBuilder();
+            //
+            strSql.Clear();
+            strSql.Clear();
+            strSql.Append("select a.Co_id,a.Module_id,a.ModuleAddr,md.ModuleName,a.ChrgVal+a.ZsVal as AllVal,a.LastVal-a.FirstVal as UseVal,a.RdVal");
+            strSql.Append(" from vp_v2info as a inner join syscont as b on a.Ledger = b.Ledger and a.FunType='E'");
+            strSql.Append(" inner join vp_coinfo as cu on a.Ledger = cu.Ledger and a.Co_id = cu.Co_id");
+            strSql.Append(" inner join vp_mdinfo as md on a.Ledger = md.Ledger and a.Co_id=md.Co_id and a.Module_id = md.Module_id and a.ModuleAddr=md.ModuleAddr and a.Mm_id=md.Mm_id");
+            strSql.Append(" left join v1_gateway_esp_module_info as c on a.Ledger = c.Ledger and a.Module_id = c.Module_id");
+            strSql.Append(" where a.Ledger=@Ledger and a.Module_id=@Module_id and b.IsClosed=1");
+            strSql.Append(" and a.RdVal < case when ifnull(c.AlarmVal, 0) = 0 then b.OdValue else c.AlarmVal end ");
+            DataTable dtSource = SQLHelper.Query(strSql.ToString(), new { Ledger = this.Ledger, Module_id = module_id });
+            return dtSource;
+        }
+        #region V2.1
+        public long AddAlarm(v2_alarm_logVModel alarm)
+        {
+            object parmas01 = new
+            {
+                Ledger = this.Ledger,
+                Module_id = alarm.Module_id,
+                ModuleAddr = alarm.ModuleAddr,
+                Fun_id = alarm.Fun_id,
+                FunType = alarm.FunType,
+                FunName = alarm.FunName,
+                CollectTime = alarm.CollectTime,
+                CollectValue = alarm.CollectValue,
+                ErrCode = alarm.ErrCode,
+                ErrTxt = alarm.ErrTxt,
+                Content = alarm.Content,
+                SysUid = this.SysUid,
+            };
+            StringBuilder strSql = new StringBuilder();
+            long log_id = 0;
+            strSql.Clear();
+            strSql.Append("insert into v2_alarm_log(");
+            strSql.Append("CDate,Ledger,Co_id,Module_id,ModuleAddr,Fun_id,FunType,FunName,Content,Create_by,Create_dt,CollectTime,CollectValue,ErrCode,ErrTxt,Total)");
+            strSql.Append("select now(),@Ledger,a.Co_id,@Module_id,@ModuleAddr,@Fun_id,@FunType,@FunName,@Content,@SysUid,now(),@CollectTime,@CollectValue,@ErrCode,@ErrTxt,1");
+            strSql.Append(" from vp_mdinfo as a where a.Ledger=@Ledger and a.Module_id=@Module_id;");
+            strSql.Append("select last_insert_id();");
+            log_id = CommFunc.ConvertDBNullToLong(SQLHelper.ExecuteScalar(strSql.ToString(), parmas01));
+            return log_id;
+        }
+        #endregion
+    }
+}

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration> 
+  <connectionStrings>
+    <add name="DefaultConnection" connectionString="Server={0};Database={1};User={2};Password={3};Use Procedure Bodies=false;Port=3306;Charset=utf8;Allow Zero Datetime=False;Pooling=true;Max Pool Size=5000;"/>
+  </connectionStrings>
+  <appSettings>
+    <!--Redis服务-->
+    <add key="Redis:DefaultDb" value="0" />
+    <add key="Redis:Connection" value="ridesServer2018PASSWORDis:yada88@192.168.5.183:6379" />    
+    <!--注册码-->
+    <add key="sn" value="6AC957505AE6E5BAC7AD9E742BAE2E8D36D665996662ABEF"/>
+    <!--有效期-->
+    <add key="dsn" value="11404B53FCF923E16C6EE0E5D85B51AC"/>
+  </appSettings>
+  
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+    </startup>
+</configuration>

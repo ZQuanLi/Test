@@ -1,0 +1,231 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using YDS6000.Models;
+using YDS6000.DAL.DataProcess;
+
+namespace YDS6000.BLL.DataProcess
+{
+    public class DataProcessBLL
+    {
+        private int Ledger = 0;
+        private int SysUid = 0;
+        private readonly DataProcessDAL dal = null;
+        public DataProcessBLL(int _ledger, int _uid)
+        {
+            this.Ledger = _ledger;
+            this.SysUid = _uid;
+            dal = new DataProcessDAL(_ledger, _uid);
+        }
+
+
+        /// <summary>
+        /// 获取各种参数配置信息
+        /// </summary>
+        /// <param name="CfType"></param>
+        /// <returns></returns>
+        public DataTable GetSysConfig(string cfType)
+        {
+            return dal.GetSysConfig(cfType);
+        }
+
+        /// <summary>
+        /// 获取回路采集点信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetMapInfo(string tagName)
+        {
+            return dal.GetMapInfo(tagName);
+        }
+
+
+        /// <summary>
+        /// 数据处理
+        /// </summary>
+        /// <param name="module_id">设备ID号</param>
+        /// <param name="moduleAddr">设备地址</param>
+        /// <param name="fun_id">功能ID号</param>
+        /// <param name="dataVal">采集数</param>
+        /// <param name="collectTime">采集时间</param>
+        /// <returns></returns>
+        public int DataProcess(int module_id, string moduleAddr, int fun_id, string dataVal, DateTime collectTime, out string msg,int? timeOut = null)
+        {
+            return dal.DataProcess(module_id, moduleAddr, fun_id, dataVal, collectTime, out msg, timeOut);
+        }
+
+        public int UpdataMap(int module_id, int fun_id, string lpszVal)
+        {
+            return dal.UpdataMap(module_id, fun_id, lpszVal);
+        }
+
+        /// <summary>
+        /// 更新采集命令
+        /// </summary>
+        /// <param name="log_id"></param>
+        /// <param name="errCode"></param>
+        /// <param name="errTxt"></param>
+        /// <returns></returns>
+        public int UpdataCmd(CommandVModel cmd, int errCode, string errTxt)
+        {
+            return dal.UpdataCmd(cmd, errCode, errTxt);
+        }
+        /// <summary>
+        /// 更新采集命令
+        /// </summary>
+        /// <param name="log_id"></param>
+        /// <returns></returns>
+        public int UpdataCmd(long log_id)
+        {
+            return dal.UpdataCmd(log_id);
+        }
+    
+        /// <summary>
+        /// 下发命令
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="errCode"></param>
+        /// <param name="errTxt"></param>
+        public long AddCmdLog(CommandVModel cmd, int errCode, string errTxt)
+        {
+            return dal.AddCmdLog(cmd, errCode, errTxt);
+        }
+        /// <summary>
+        /// 增加恶性负载记录
+        /// </summary>
+        /// <param name="co_id"></param>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <param name="aType"></param>
+        /// <param name="fun_id"></param>
+        /// <param name="content"></param>
+        /// <param name="errCode"></param>
+        /// <param name="errTxt"></param>
+        /// <param name="CollectTime"></param>
+        /// <returns></returns>
+        public int AddAlarmOnCollect(int co_id, int module_id, string moduleAddr, string aType, int fun_id, string content, int errCode, string errTxt, DateTime collectTime)
+        {
+            return dal.AddAlarmOnCollect(co_id, module_id, moduleAddr, aType, fun_id, content, errCode, errTxt, collectTime);
+        }
+
+        /// <summary>
+        /// 根据日期+采集时间入库
+        /// </summary>
+        /// <param name="co_id"></param>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <param name="aType"></param>
+        /// <param name="content">采集类型</param>
+        /// <param name="errCode"></param>
+        /// <param name="errTxt"></param>
+        /// <returns></returns>
+        public long AddAlarm(int co_id, int module_id, string moduleAddr, string aType, int fun_id, string content, string collectValue, DateTime collectTime, int errCode, string errTxt)
+        {
+            return dal.AddAlarm(co_id, module_id, moduleAddr, aType, fun_id, content, errCode, errTxt, collectValue, collectTime);
+        }
+
+        public v2_alarm_logHandVModel GetAlarmHand(long log_id,string hdType)
+        {
+            return dal.GetAlarmHand(log_id, hdType);
+        }
+
+        public DataTable GetSendInfo(int co_id)
+        {
+            return dal.GetSendInfo(co_id);
+        }
+
+        public int UpAlarmHand(v2_alarm_logHandVModel hand)
+        {
+            return dal.UpAlarmHand(hand);
+        }
+        /// <summary>
+        /// 获取采集电量及剩余电量信息
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <returns></returns>
+        public DataTable GetArmAndRdVal(int module_id,string moduleAddr)
+        {
+            return dal.GetArmAndRdVal(module_id,moduleAddr);
+        }
+
+        /// <summary>
+        /// 获取采集电量及剩余电量信息
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <returns></returns>
+        public DataTable GetArmAndRdVal2(int module_id, string moduleAddr)
+        {
+            return dal.GetArmAndRdVal2(module_id, moduleAddr);
+        }
+
+        /// <summary>
+        /// 增加设备充值命令到数据库中
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <param name="payVal"></param>
+        /// <returns></returns>
+        public long AddPayCommmand(int module_id, string moduleAddr, decimal payVal)
+        {
+            return dal.AddPayCommmand(module_id, moduleAddr, payVal);
+        }
+
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <param name="useVal"></param>
+        /// <returns></returns>
+        public int UpdateV2FirstVal(int module_id, string moduleAddr, decimal useVal)
+        {
+            return dal.UpdateV2FirstVal(module_id, moduleAddr, useVal);
+        }
+        /// <summary>
+        /// 增加设备充值命令到数据库中
+        /// </summary>
+        /// <param name="module_id"></param>
+        /// <param name="moduleAddr"></param>
+        /// <param name="payVal"></param>
+        /// <returns></returns>
+        public long AddPayCommmand(int module_id, string moduleAddr, decimal payVal,V0Fun funType)
+        {
+            return dal.AddPayCommmand(module_id, moduleAddr, payVal, funType);
+        }
+        /// <summary>
+        /// 获取命令
+        /// </summary>
+        /// <param name="log_id"></param>
+        /// <returns></returns>
+        public CommandVModel GetCommmand(long log_id)
+        {
+            return dal.GetCommmand(log_id);
+        }
+
+        public DataTable GetIsQiFei(int module_id)
+        {
+            return dal.GetIsQiFei(module_id);
+        }
+
+        #region V2.1
+        public long AddAlarm(v2_alarm_logVModel alarm)
+        {
+            return dal.AddAlarm(alarm);
+        }
+        #endregion
+
+        public bool GetAlarmFisrt(int Ledger, int SysUid, out string AreaPowerStr)
+        {
+            bool IsCheckAreaPower = dal.GetAreaPower(Ledger, SysUid, out AreaPowerStr);
+            return IsCheckAreaPower;
+        }
+        public DataTable Getv2_alarm_log(int Log_id)
+        {
+            return dal.Getv2_alarm_log(Log_id);
+        }
+    }
+}

@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Collections.Concurrent;
+using YDS6000.BLL.DataProcess;
+using YDS6000.Models;
+
+namespace DataProcess.Yd.Alarm
+{
+    internal class Collect
+    {
+        private static ConcurrentDictionary<long, object> m2mqtt = new ConcurrentDictionary<long, object>();
+        public void Run()
+        {
+            while (true)
+            {
+                Thread.Sleep(100);/*每100毫秒*/
+                v2_alarm_logVModel cc = null;
+                if (NCSys.AlarmCollect.TryDequeue(out cc) == true)
+                {
+                    try
+                    {
+                        DataProcessBLL bll = new DataProcessBLL(cc.Ledger, Config.Uid);
+                        long log_id = bll.AddAlarm(cc);
+                        if (cc.IsMqtt == true)
+                        {
+                            object dy = new { cc = cc, time = DateTime.Now, count = 0 };
+                            m2mqtt.TryAdd(log_id, dy);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        FileLog.Error("内容:" + JsonHelper.Serialize(cc) + "记录告警错误:" + ex.Message + ex.StackTrace);
+                    }
+                }
+                
+                try
+                {/*告警信息半个钟推一次，一共需要6次，现场确认下来了*/
+                    bool bIsNext = true;
+                    var enumer = m2mqtt.GetEnumerator();
+                    while (bIsNext == true)
+                    {
+                        Thread.Sleep(1000);/*每100毫秒*/
+                        bIsNext = enumer.MoveNext();
+                        if (bIsNext == false) break;
+                        var s0 = enumer.Current;
+                        long key = s0.Key;
+                        object obj = s0.Value;
+
+                        v2_alarm_logVModel am = CommFunc.GetPropertyValue("cc", obj) as v2_alarm_logVModel;
+                        DateTime dd = CommFunc.ConvertDBNullToDateTime(CommFunc.GetPropertyValue("time", obj));
+                        int count = CommFunc.ConvertDBNullToInt32(CommFunc.GetPropertyValue("count", obj));
+                        bool isUp = false;
+                        if (count == 0 || DateTime.Now >= dd.AddMinutes(30))
+                        {
+                            DataProcess.Business.m2mqtt.Publish(am.Content);
+                            count = count + 1;
+                            isUp = true;
+                            FileLog.WriteLog("Log_id:" + key + " 推送次数:" + count);
+                        }
+                        if (count == 6)
+                        {
+                            m2mqtt.TryRemove(key, out obj);
+                            FileLog.WriteLog("Log_id:" + key + " 推送:" + count + "移除");
+                        }
+                        else
+                        {
+                            if (isUp == true)
+                            {
+                                object newObj = new { cc = am, time = DateTime.Now, count = count };
+                                if (m2mqtt.TryUpdate(key, newObj, obj))
+                                    FileLog.WriteLog("Log_id:" + key + " 推送:" + count + " 更新成功！");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    FileLog.Error("推送mqtt记录内容错误:" + ex.Message + ex.StackTrace);
+                }
+            }
+        }
+    }
+}

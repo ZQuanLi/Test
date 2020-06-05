@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C59A6CF-4C07-45CA-93E6-486F561F556A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YDS6000.DAL</RootNamespace>
+    <AssemblyName>YDS6000.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\Lib\DbLib\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib">
+      <HintPath>..\Lib\DbLib\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\DbLib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataProcess\SyscontDAL.cs" />
+    <Compile Include="DataProcess\YdDbMidDAL.cs" />
+    <Compile Include="DataProcess\ZpRaValDAL.cs" />
+    <Compile Include="DataProcess\ZpSiDAL.cs" />
+    <Compile Include="Energy\Home\BYD\HomeDAL.cs" />
+    <Compile Include="Energy\Home\HomeDAL.cs" />
+    <Compile Include="Energy\Monitor\MonitorDAL.cs" />
+    <Compile Include="Energy\Monitor\ZpRealDataDAL.cs" />
+    <Compile Include="Energy\Report\ReportDAL.cs" />
+    <Compile Include="Energy\Report\ZpEnergyDAL.cs" />
+    <Compile Include="Energy\Report\ZpEnergyX261DAL.cs" />
+    <Compile Include="Energy\Report\ZpHisdataDAL.cs" />
+    <Compile Include="Energy\Report\ZpUseValDAL.cs" />
+    <Compile Include="ExpAdminApp\Home\ExpAdminHomeDAL.cs" />
+    <Compile Include="ExpAdminApp\Monitor\ExpAdminMonitorDAL.cs" />
+    <Compile Include="ExpApp\Energy\EnergyDAL.cs" />
+    <Compile Include="ExpApp\Estate\EstateDAL.cs" />
+    <Compile Include="ExpApp\Home\HomeDAL.cs" />
+    <Compile Include="ExpApp\SysMgr\SysMgrDAL.cs" />
+    <Compile Include="Exp\Alarm\AlarmDAL.cs" />
+    <Compile Include="Exp\Alarm\YdAlarmOfChargeDAL.cs" />
+    <Compile Include="Exp\Alarm\YdAlarmOfCmdDAL.cs" />
+    <Compile Include="Exp\Alarm\YdAlarmOfGwDAL.cs" />
+    <Compile Include="Exp\Alarm\YdAlarmOfLoadDAL.cs" />
+    <Compile Include="Exp\Alarm\YdAlarmOfUnusualDAL.cs" />
+    <Compile Include="Exp\Alarm\YdAlarmOfValDAL.cs" />
+    <Compile Include="Exp\Charge\ChargeDAL.cs" />
+    <Compile Include="Exp\Charge\YdPostPayInMdDAL.cs" />
+    <Compile Include="Exp\Charge\YdPrePayInMdDAL.cs" />
+    <Compile Include="Exp\Dqhz\DqhzDAL.cs" />
+    <Compile Include="Exp\Home\HomeDAL.cs" />
+    <Compile Include="Exp\Mgr\MgrDAL.cs" />
+    <Compile Include="Exp\Monitor\MonitorDAL.cs" />
+    <Compile Include="Exp\Monitor\YdMonitorDAL.cs" />
+    <Compile Include="Exp\Monitor\YdParamsDAL.cs" />
+    <Compile Include="Exp\Monitor\YdSmsDAL.cs" />
+    <Compile Include="Exp\PayCharg\PayChargDAL.cs" />
+    <Compile Include="Exp\PayLog\ExpYdPayLogDAL.cs" />
+    <Compile Include="Exp\RunReport\ExpYdCollectDAL.cs" />
+    <Compile Include="Exp\RunReport\ExpYdMotionDAL.cs" />
+    <Compile Include="Exp\RunReport\ExpYdRepHisDAL.cs" />
+    <Compile Include="Exp\RunReport\ExpYdSsrDAL.cs" />
+    <Compile Include="Exp\RunReport\ExpYdSysLogDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpBuildingNewDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpModelsDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpRateDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpRateNewDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpRoleDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpTimingDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpUserDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpYdBuildingBatchDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpYdCustomerDAL.cs" />
+    <Compile Include="Exp\Syscont\ExpYdModuleDAL.cs" />
+    <Compile Include="Exp\Syscont\ParameterDAL.cs" />
+    <Compile Include="Exp\YdToGwDAL.cs" />
+    <Compile Include="IFSMgr\Monitor\MonitorDAL.cs" />
+    <Compile Include="PDU\Alarm\AlarmDAL.cs" />
+    <Compile Include="PDU\Home\HomeDAL.cs" />
+    <Compile Include="PDU\Home\HomeDALV1.1.cs" />
+    <Compile Include="PDU\Mgr\MgrDAL.cs" />
+    <Compile Include="PDU\Mgr\ZpMgrLimitDAL.cs" />
+    <Compile Include="PDU\Monitor\MonitorDAL.cs" />
+    <Compile Include="PDU\Report\ReportDAL.cs" />
+    <Compile Include="Platform\BaseInfo\BaseInfoDAL.cs" />
+    <Compile Include="Platform\BaseInfo\YdBuildDAL.cs" />
+    <Compile Include="Platform\BaseInfo\YdMeterDAL.cs" />
+    <Compile Include="Platform\BaseInfo\YdModuleDAL.cs" />
+    <Compile Include="Platform\BaseInfo\YdModuleTypeDAL.cs" />
+    <Compile Include="Platform\BaseInfo\YdProjectDAL.cs" />
+    <Compile Include="CmdService\ProcessDAL.cs" />
+    <Compile Include="DataProcess\AlarmDAL.cs" />
+    <Compile Include="DataProcess\DataProcessDAL.cs" />
+    <Compile Include="DataProcess\MainFormDAL.cs" />
+    <Compile Include="DataProcess\PayEstDAL.cs" />
+    <Compile Include="DBUtility\SQLHelper.cs" />
+    <Compile Include="DBUtility\SqlAdapter\ISqlConnectionAdapter.cs" />
+    <Compile Include="DBUtility\SqlAdapter\MySqlConnectionAdapter.cs" />
+    <Compile Include="DBUtility\SqlAdapter\SqlServerConnectionAdapter.cs" />
+    <Compile Include="Platform\Home\HomeDAL.cs" />
+    <Compile Include="Platform\User\YdRoleDAL.cs" />
+    <Compile Include="Platform\User\UserDAL.cs" />
+    <Compile Include="Platform\User\YdUserDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sation\BaseInfo\BaseInfoDAL.cs" />
+    <Compile Include="Sation\BaseInfo\YdAreaDAL.cs" />
+    <Compile Include="Sation\BaseInfo\YdCrmDAL.cs" />
+    <Compile Include="Sation\BaseInfo\YdGatewayDAL.cs" />
+    <Compile Include="Sation\BaseInfo\YdModuleDAL.cs" />
+    <Compile Include="Sation\Menu\MenuDAL.cs" />
+    <Compile Include="Sation\Report\ReportDAL.cs" />
+    <Compile Include="Sation\Report\YdModuleDAL.cs" />
+    <Compile Include="Sation\Report\YdPSWayDAL.cs" />
+    <Compile Include="Sation\Report\YdRoomSightDAL.cs" />
+    <Compile Include="Sation\Report\YdStationDAL.cs" />
+    <Compile Include="Sation\Report\YdSwitchDAL.cs" />
+    <Compile Include="Sation\User\UseDAL.cs" />
+    <Compile Include="Sation\User\YdUserDAL.cs" />
+    <Compile Include="Whole\WHoleDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YDS6000.Models\YDS6000.Models.csproj">
+      <Project>{1ee52b71-d696-4b2d-9371-c28a2d53a2cb}</Project>
+      <Name>YDS6000.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

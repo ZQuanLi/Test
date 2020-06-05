@@ -1,0 +1,35 @@
+﻿# 数据库连接参数
+[Db]
+DbHost = 192.168.5.183
+DbName = yds6000v21
+DbUid = root
+DbPwd = 571EFF58B0D9CDFA
+
+# 启动端口 Start = 0 不启动，=1启动 ； Port 启动端口
+# Uid: 登陆ID；;Log_levenl 日志等级，0.不输出日志；1.只输出错误信息; 2.输出错误和正常信息; 3.输出错误信息、正常信息和调试信息
+# Systems 全部项目ID号 SystemName 项目名称
+# 
+[Automatic]
+Start = 0
+Port = 5823
+Uid = 1
+Systems = 0
+SystemName = 平台
+Log_levenl = 3
+
+# Rdc接口  Ip = 服务器IP ; ConfigPort = 配置端口; DataPort = 数据变化端口
+[Rdc]
+Ip = 192.168.5.183
+ConfigPort = 11092
+DataPort = 8109
+
+# 告警串口配置
+# Scan = 30 扫描告警频率(分钟) ;  IsAlarm=0关闭告警 =1 开启告警 ; Hour 每天整点小时; 
+# SendSpan 有告警发送短信邮件的间隔时间
+# RangeUse 路灯项目，有使用电告警
+[Alarm]
+Scan = 30
+IsAlarm = 0;
+Hour = 0
+SendSpan = 1
+RangeUse = 

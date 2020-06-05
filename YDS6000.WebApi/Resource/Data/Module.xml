@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <!--DDS3366L-->
+  <data>
+    <type Name="设备类型">DDS3366L</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+    </rows>
+  </data>
+
+  <!--DDS3366L-1-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DDS3366L-1</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+    </rows>
+  </data>
+  
+  <!--DTS3366D-4PL-->
+  <data>
+    <type Name="设备类型">DTS3366D-4PL</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+    </rows>
+  </data>
+
+  <!--IOServer-NB-->
+  <data>
+    <type Name="设备类型">IOServer-NB</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="Comm" FunName="通讯状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Comm"></funtion>
+      <funtion FunType="Ssr0" FunName="合闸" Action="1" DataType="0" Scale="0" OrdNo="0" SubTab=""></funtion>
+      <funtion FunType="Ssr1" FunName="拉闸" Action="1" DataType="0" Scale="0" OrdNo="0" SubTab=""></funtion>      
+      <funtion FunType="IsPaul" FunName="保电状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="IsPaul"></funtion>
+      <funtion FunType="IsPaul0" FunName="非保电" Action="1" DataType="0" Scale="0" OrdNo="0" SubTab=""></funtion>
+      <funtion FunType="IsPaul1" FunName="保电" Action="1" DataType="0" Scale="0" OrdNo="0" SubTab=""></funtion>
+    </rows>
+  </data>
+  
+  <!--DTS3366D-3P-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DTS3366D-3P</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件(不需要转存入数据库)；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+    </rows>
+  </data>
+
+  <!--DDS3366D-2PEB-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DDS3366D-2PEB</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件(不需要转存入数据库)；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="EventWpf" FunName="记录恶性负载事件" Action="2" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Nrp" FunName="有功功率负荷限值(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="McNrp" FunName="恶性负载判定有功功率增量(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Wpf" FunName="恶性负载判定无功功率(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Uep" FunName="违规用电判定功能的功率下限(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Miss" FunName="一天内违规断电次数限值(0~255)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Rest" FunName="违规断电后重启时间(S)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Saf" FunName="单次功率增量限值(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Avlm" FunName="过流门限值(A)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Phase" FunName="启用移相器监测功率下限(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Resist" FunName="设置阻行负载(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="IsPhase" FunName="移相器(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="TiVal" FunName="定时断送电" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+    </rows>
+  </data>
+
+  <!--DDS3366D-2PL-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DDS3366D-2PL</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="EventWpf" FunName="记录恶性负载事件" Action="2" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Nrp" FunName="有功功率负荷限值(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="McNrp" FunName="恶性负载判定有功功率增量(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Wpf" FunName="恶性负载判定无功功率(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Uep" FunName="违规用电判定功能的功率下限(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Miss" FunName="一天内违规断电次数限值(0~255)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Rest" FunName="违规断电后重启时间(S)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Saf" FunName="单次功率增量限值(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Avlm" FunName="过流门限值(A)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Phase" FunName="启用移相器监测功率下限(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Resist" FunName="设置阻行负载(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="IsPhase" FunName="移相器(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="TiVal" FunName="定时断送电" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+    </rows>
+  </data>
+
+  <!--DDS3366D-F-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DDS3366D-F</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="RdVal" FunName="当前剩余电量" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="RdVal"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+    </rows>
+  </data>
+
+  <!--DTSD3366D-F-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DTSD3366D-F</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="1" OrdGrp="0" Unit="kWh" PointType="5" AlarmModel="10" SubTab="E"></funtion>
+      <funtion FunType="Ia" FunName="A相电流" Action="0" DataType="0" Scale="0" OrdNo="2" OrdGrp="0" Unit="mA" PointType="5" AlarmModel="10" SubTab="Ia"></funtion>
+      <funtion FunType="Ib" FunName="B相电流" Action="0" DataType="0" Scale="0" OrdNo="3" OrdGrp="0" Unit="mA" PointType="5" AlarmModel="10" SubTab="Ib"></funtion>
+      <funtion FunType="Ic" FunName="C相电流" Action="0" DataType="0" Scale="0" OrdNo="4" OrdGrp="0" Unit="mA" PointType="5" AlarmModel="10" SubTab="Ic"></funtion>
+      <funtion FunType="Ua" FunName="A相电压" Action="0" DataType="0" Scale="0" OrdNo="5" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ua"></funtion>
+      <funtion FunType="Ub" FunName="B相电压" Action="0" DataType="0" Scale="0" OrdNo="6" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ub"></funtion>
+      <funtion FunType="Uc" FunName="C相电压" Action="0" DataType="0" Scale="0" OrdNo="7" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Uc" ></funtion>
+      <funtion FunType="Psum" FunName="三相有功功率" Action="0" DataType="0" Scale="1" OrdNo="8" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Psum" ></funtion>
+      <funtion FunType="Pa" FunName="A相有功功率" Action="0" DataType="0" Scale="0" OrdNo="9" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Pa" ></funtion>
+      <funtion FunType="Pb" FunName="B相有功功率" Action="0" DataType="0" Scale="0" OrdNo="10" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Pb" ></funtion>
+      <funtion FunType="Pc" FunName="C相有功功率" Action="0" DataType="0" Scale="0" OrdNo="11" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Pc" ></funtion>
+      <funtion FunType="Qsum" FunName="三相无功功率" Action="0" DataType="0" Scale="1" OrdNo="12" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Qsum" ></funtion>
+      <funtion FunType="Qa" FunName="A相无功功率" Action="0" DataType="0" Scale="0" OrdNo="13" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Qa" ></funtion>
+      <funtion FunType="Qb" FunName="B相无功功率" Action="0" DataType="0" Scale="0" OrdNo="14" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Qb" ></funtion>
+      <funtion FunType="Qc" FunName="C相无功功率" Action="0" DataType="0" Scale="0" OrdNo="15" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Qc" ></funtion>
+      <funtion FunType="Pfav" FunName="三相总功率因数" Action="0" DataType="0" Scale="4" OrdNo="16" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="Pfav" ></funtion>
+      <funtion FunType="PFa" FunName="A相功率因数" Action="0" DataType="0" Scale="4" OrdNo="17" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="PFa" ></funtion>
+      <funtion FunType="PFb" FunName="B相功率因数" Action="0" DataType="0" Scale="4" OrdNo="18" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="PFb" ></funtion>
+      <funtion FunType="PFc" FunName="C相功率因数" Action="0" DataType="0" Scale="4" OrdNo="19" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="PFc" ></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="20" Unit="" PointType="5" AlarmModel="10" SubTab="Ssr"></funtion>
+      <funtion FunType="RdVal" FunName="当前剩余电量" Action="0" DataType="0" Scale="2" OrdNo="21" Unit="" PointType="5" AlarmModel="10" SubTab="RdVal"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="22" Unit="" PointType="5" AlarmModel="10" SubTab=""></funtion>
+      <funtion FunType="IsRelay" FunName="继电器参数:=0电平式A路=1电平式B路=2脉冲式" Action="1" DataType="0" Scale="0" OrdNo="23" Unit="" PointType="5" AlarmModel="10" SubTab=""></funtion>
+    </rows>
+  </data>
+
+  <!--DSSD3366D-F-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DSSD3366D-F</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="RdVal" FunName="当前剩余电量" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="RdVal"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="IsRelay" FunName="继电器参数:=0电平式A路=1电平式B路=2脉冲式" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+    </rows>
+  </data>
+
+  <!--DDS3366D-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DDS3366D</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+    </rows>
+  </data>
+
+  <!--DTSD3366D-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DTSD3366D</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+    </rows>
+  </data>
+
+  <!--DSSD3366D-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">DSSD3366D</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+    </rows>
+  </data>
+
+  <!--Modbus-Hz 惠州项目使用-->
+  <data>
+    <type Name="设备类型">Modbus-Hz</type>
+    <protocol Name="协议类型">modbus</protocol>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+    </rows>
+  </data>
+
+  <!--Modbus1352 贵州项目使用-->
+  <data>
+    <type Name="设备类型">Modbus1352</type>
+    <protocol Name="协议类型">modbus</protocol>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+    </rows>
+  </data>
+
+  <!--DTSDS3366M-4-W1-->
+  <data>
+    <type Name="设备类型">DTSDS3366M-4-W1</type>
+    <protocol Name="协议类型">modbus</protocol>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+    </rows>
+  </data>
+
+  <!--YDH20D-->
+  <data>
+    <type Name="设备类型">YDH20D</type>
+    <protocol Name="协议类型">modbus</protocol>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件;=3仅读不保存入库；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="Leak1" FunName="漏电流一" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Leak2" FunName="漏电流二" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Leak3" FunName="漏电流三" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Leak4" FunName="漏电流四" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Leak5" FunName="漏电流五" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Leak6" FunName="漏电流六" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Leak7" FunName="漏电流七" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Leak8" FunName="漏电流八" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Temp1" FunName="温度一" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Temp2" FunName="温度二" Action="0" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="LeakAlarm" FunName="告警" Action="3" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxLeak1" FunName="电流1阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxLeak2" FunName="电流2阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxLeak3" FunName="电流3阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxLeak4" FunName="电流4阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxLeak5" FunName="电流5阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxLeak6" FunName="电流6阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxLeak7" FunName="电流7阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxLeak8" FunName="电流8阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxTemp1" FunName="温度1阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxTemp2" FunName="温度2阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxTemp3" FunName="温度3阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="MaxTemp4" FunName="温度4阀值" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusLeak1" FunName="电流1使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusLeak2" FunName="电流2使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusLeak3" FunName="电流3使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusLeak4" FunName="电流4使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusLeak5" FunName="电流5使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusLeak6" FunName="电流6使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusLeak7" FunName="电流7使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusLeak8" FunName="电流8使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusTemp1" FunName="温度1使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusTemp2" FunName="温度2使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusTemp3" FunName="温度3使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="StatusTemp4" FunName="温度4使能(0=不动作,1=告警,2=出口1,3=出口2,4=出口3,5=出口4)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+    </rows>
+  </data>
+
+  <!--YD-ZB20-4PL2-2-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">YD-ZB20-4PL2-2</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件(不需要转存入数据库)；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="RdVal" FunName="当前剩余电量" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="RdVal"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="EventWpf" FunName="记录恶性负载事件" Action="2" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <!--<funtion FunType="Nrp" FunName="有功功率负荷限值(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>-->
+      <funtion FunType="McNrp" FunName="恶性负载判定有功功率增量(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <!--<funtion FunType="Wpf" FunName="恶性负载判定无功功率(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>-->
+      <funtion FunType="Uep" FunName="违规用电判定功能的功率下限(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Miss" FunName="一天内违规断电次数限值(0~255)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Rest" FunName="违规断电后重启时间(S)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Saf" FunName="单次功率增量限值(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Avlm" FunName="过流门限值(A)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Phase" FunName="启用移相器监测功率下限(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <!--<funtion FunType="Resist" FunName="设置阻行负载(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>-->
+      <funtion FunType="IsPhase" FunName="移相器(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <!--<funtion FunType="TiVal" FunName="定时断送电" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>-->
+    </rows>
+  </data>
+
+  <!--YD-ZB20-4PL2-SB 河北工业大学特用(SB)-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">YD-ZB20-4PL2-SB</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="RdVal" FunName="当前剩余电量" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="RdVal"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="EventWpf" FunName="记录恶性负载事件" Action="2" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <!--<funtion FunType="Nrp" FunName="有功功率负荷限值(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>-->
+      <funtion FunType="McNrp" FunName="恶性负载判定有功功率增量(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <!--<funtion FunType="Wpf" FunName="恶性负载判定无功功率(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>-->
+      <funtion FunType="Uep" FunName="违规用电判定功能的功率下限(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Miss" FunName="一天内违规断电次数限值(0~255)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Rest" FunName="违规断电后重启时间(S)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="Saf" FunName="单次功率增量限值(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Avlm" FunName="过流门限值(A)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <funtion FunType="Phase" FunName="启用移相器监测功率下限(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>
+      <!--<funtion FunType="Resist" FunName="设置阻行负载(kW)" Action="1" DataType="0" Scale="2" OrdNo="0"></funtion>-->
+      <funtion FunType="IsPhase" FunName="移相器(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+      <funtion FunType="IsPaul" FunName="保电(=1启用)" Action="1" DataType="0" Scale="0" OrdNo="0"></funtion>
+    </rows>
+  </data>
+
+  <!--YD-NET1004-D-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">YD-NET1004-D</type>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件(不需要转存入数据库)；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+    </rows>
+  </data>
+
+  <!--IOService-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">IOServer</type>
+    <protocol Name="协议类型">IOServer</protocol>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="正向有功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="拉合闸状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+      <funtion FunType="EAnt" FunName="正向无功总电能" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="EAnt"></funtion>
+      <funtion FunType="Pfav" FunName="总功率因数" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Pfav"></funtion>
+      <funtion FunType="Psum" FunName="正向有功功率" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Psum"></funtion>
+      <funtion FunType="Qsum" FunName="正向无功功率" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Qsum"></funtion>
+      <funtion FunType="Ia" FunName="A相电流" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Ia"></funtion>
+      <funtion FunType="Ib" FunName="B相电流" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Ib"></funtion>
+      <funtion FunType="Ic" FunName="C相电流" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Ic"></funtion>
+      <funtion FunType="Ua" FunName="A相电压" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Ua"></funtion>
+      <funtion FunType="Ub" FunName="B相电压" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Ub"></funtion>
+      <funtion FunType="Uc" FunName="C相电压" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Uc"></funtion>
+      <funtion FunType="Pa" FunName="A相有功功率" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Pa"></funtion>
+      <funtion FunType="Pb" FunName="B相有功功率" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Pb"></funtion>
+      <funtion FunType="Pc" FunName="C相有功功率" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="Pc"></funtion>
+      <funtion FunType="PFa" FunName="A相功率因数" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="PFa"></funtion>
+      <funtion FunType="PFb" FunName="B相功率因数" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="PFb"></funtion>
+      <funtion FunType="PFc" FunName="C相功率因数" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="PFc"></funtion>
+    </rows>
+  </data>
+
+  <!--IOService-->
+  <data>
+    <!--设备类型-->
+    <type Name="设备类型">Water</type>
+    <protocol Name="协议类型">IOService</protocol>
+    <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序 -->
+    <rows>
+      <funtion FunType="E" FunName="用水度数" Action="0" DataType="0" Scale="2" OrdNo="0" SubTab="E"></funtion>
+      <funtion FunType="Ssr" FunName="阀门状态" Action="0" DataType="0" Scale="0" OrdNo="0" SubTab="Ssr"></funtion>
+    </rows>
+  </data>
+  <!--YD2037Y-C-->
+  <!--<data>
+    -->
+  <!--设备类型-->
+  <!--
+    <type Name="设备类型" IsDefine="0">YD2037Y-C</type>
+    -->
+  <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序(测点编号); OrdGrp=0 命令组编号; Unit：单位 PointType：
+    测点类型;AlarmModel=10 越限;= 20 越位;=30 通信链路；=;SubTab:分库 -->
+  <!--
+    <rows>
+      <funtion FunType="Connected" FunName="设备状态" Action="0" DataType="0" Scale="0" OrdNo="0" OrdGrp="0" Unit="" PointType="8" AlarmModel="30" SubTab="Connected"></funtion>
+      <funtion FunType="E" FunName="正向有功总电能" Action="0" DataType="0" Scale="2" OrdNo="36" OrdGrp="0" Unit="kWh" PointType="5" AlarmModel="10" SubTab="E"></funtion>
+      <funtion FunType="QE" FunName="负向有功总电能" Action="0" DataType="0" Scale="2" OrdNo="37" OrdGrp="0" Unit="kWh" PointType="5" AlarmModel="10" SubTab="QE"></funtion>
+      <funtion FunType="EAnt" FunName="正向无功电能" Action="0" DataType="0" Scale="2" OrdNo="38" OrdGrp="0" Unit="kWh" PointType="5" AlarmModel="10" SubTab="EAnt"></funtion>
+      <funtion FunType="QEAnt" FunName="负向无功电能" Action="0" DataType="0" Scale="2" OrdNo="39" OrdGrp="0" Unit="kWh" PointType="5" AlarmModel="10" SubTab="QEAnt"></funtion>
+
+      <funtion FunType="DI1" FunName="开入状态检测(DI1)" Action="0" DataType="0" Scale="0" OrdNo="4" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DI"></funtion>
+      <funtion FunType="DI2" FunName="开入状态检测(DI2)" Action="0" DataType="0" Scale="0" OrdNo="5" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DI"></funtion>
+      <funtion FunType="DO1" FunName="开出状态检测(DO1)" Action="0" DataType="0" Scale="0" OrdNo="13" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DI"></funtion>
+      <funtion FunType="DO2" FunName="开出状态检测(DO2)" Action="0" DataType="0" Scale="0" OrdNo="14" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DI"></funtion>
+
+      <funtion FunType="Ia" FunName="A相电流" Action="0" DataType="0" Scale="0" OrdNo="3" OrdGrp="0" Unit="mA" PointType="5" AlarmModel="10" SubTab="Ia"></funtion>
+      <funtion FunType="Ib" FunName="B相电流" Action="0" DataType="0" Scale="0" OrdNo="12" OrdGrp="0" Unit="mA" PointType="5" AlarmModel="10" SubTab="Ib"></funtion>
+      <funtion FunType="Ic" FunName="C相电流" Action="0" DataType="0" Scale="0" OrdNo="21" OrdGrp="0" Unit="mA" PointType="5" AlarmModel="10" SubTab="Ic"></funtion>
+      <funtion FunType="Ua" FunName="A相电压" Action="0" DataType="0" Scale="0" OrdNo="1" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ua"></funtion>
+      <funtion FunType="Ub" FunName="B相电压" Action="0" DataType="0" Scale="0" OrdNo="10" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ub"></funtion>
+      <funtion FunType="Uc" FunName="C相电压" Action="0" DataType="0" Scale="0" OrdNo="19" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Uc" ></funtion>
+      <funtion FunType="Uca" FunName="A线电压" Action="0" DataType="0" Scale="1" OrdNo="2" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Uca"></funtion>
+      <funtion FunType="Uab" FunName="B线电压" Action="0" DataType="0" Scale="1" OrdNo="11" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Uab"></funtion>
+      <funtion FunType="Ubc" FunName="C线电压" Action="0" DataType="0" Scale="1" OrdNo="20" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ubc" ></funtion>
+      <funtion FunType="Ue0" FunName="三相平均线电压" Action="0" DataType="0" Scale="1" OrdNo="27" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ue0"></funtion>
+      <funtion FunType="Ue" FunName="三相平均相电压" Action="0" DataType="0" Scale="1" OrdNo="28" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ue"></funtion>
+      <funtion FunType="Iav" FunName="三相平均相电流" Action="0" DataType="0" Scale="1" OrdNo="29" OrdGrp="0" Unit="mA" PointType="5" AlarmModel="10" SubTab="Iav" ></funtion>
+      <funtion FunType="F" FunName="频率" Action="0" DataType="0" Scale="8" OrdNo="30" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="F" ></funtion>
+
+      <funtion FunType="Pa" FunName="A相有功功率" Action="0" DataType="0" Scale="0" OrdNo="6" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Pa" ></funtion>
+      <funtion FunType="Pb" FunName="B相有功功率" Action="0" DataType="0" Scale="0" OrdNo="15" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Pb" ></funtion>
+      <funtion FunType="Pc" FunName="C相有功功率" Action="0" DataType="0" Scale="0" OrdNo="23" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Pc" ></funtion>
+      <funtion FunType="PFa" FunName="A相功率因数" Action="0" DataType="0" Scale="4" OrdNo="7" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="PFa" ></funtion>
+      <funtion FunType="PFb" FunName="B相功率因数" Action="0" DataType="0" Scale="4" OrdNo="16" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="PFb" ></funtion>
+      <funtion FunType="PFc" FunName="C相功率因数" Action="0" DataType="0" Scale="4" OrdNo="24" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="PFc" ></funtion>
+      <funtion FunType="Qa" FunName="A相无功功率" Action="0" DataType="0" Scale="0" OrdNo="8" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Qa" ></funtion>
+      <funtion FunType="Qb" FunName="B相无功功率" Action="0" DataType="0" Scale="0" OrdNo="17" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Qb" ></funtion>
+      <funtion FunType="Qc" FunName="C相无功功率" Action="0" DataType="0" Scale="0" OrdNo="25" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Qc" ></funtion>
+      <funtion FunType="Sa" FunName="A相视在功率" Action="0" DataType="0" Scale="4" OrdNo="9" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="Sa" ></funtion>
+      <funtion FunType="Sb" FunName="B相视在功率" Action="0" DataType="0" Scale="4" OrdNo="18" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="Sb" ></funtion>
+      <funtion FunType="Sc" FunName="C相视在功率" Action="0" DataType="0" Scale="4" OrdNo="26" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="Sc" ></funtion>
+      <funtion FunType="Psum" FunName="三相有功功率" Action="0" DataType="0" Scale="1" OrdNo="31" OrdGrp="0" Unit="W" PointType="5" AlarmModel="10" SubTab="Psum" ></funtion>
+      <funtion FunType="Pfav" FunName="三相总功率因数" Action="0" DataType="0" Scale="4" OrdNo="32" OrdGrp="0" Unit="" PointType="5" AlarmModel="10" SubTab="Pfav" ></funtion>
+      <funtion FunType="Qsum" FunName="三相无功功率" Action="0" DataType="0" Scale="1" OrdNo="33" OrdGrp="0" Unit="var" PointType="5" AlarmModel="10" SubTab="Qsum" ></funtion>
+      <funtion FunType="Ssum" FunName="三相视在功率" Action="0" DataType="0" Scale="4" OrdNo="34" OrdGrp="0" Unit="VA" PointType="5" AlarmModel="10" SubTab="Ssum" ></funtion>
+    </rows>
+  </data>
+
+  -->
+  <!--JDK-5FA-->
+  <!--
+  <data>
+    -->
+  <!--设备类型-->
+  <!--
+    <type Name="电表" IsDefine="0">JDK-5FA</type>
+    -->
+  <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序(测点编号); OrdGrp=0 命令组编号; Unit：单位 PointType：测点类型 SubTab:分库 -->
+  <!--
+    <rows>
+      <funtion FunType="Connected" FunName="设备状态" Action="0" DataType="0" Scale="2" OrdNo="0" OrdGrp="0" Unit="" PointType="8" AlarmModel="30" SubTab="Connected"></funtion>
+      <funtion FunType="E" FunName="有功电度" Action="0" DataType="0" Scale="0" OrdNo="60" OrdGrp="0" Unit="kWh" PointType="5" AlarmModel="10" SubTab="E"></funtion>
+      <funtion FunType="EAnt" FunName="无功电度" Action="0" DataType="0" Scale="0" OrdNo="61" OrdGrp="0" Unit="kWh" PointType="5" AlarmModel="10" SubTab="EAnt"></funtion>
+      <funtion FunType="Ua" FunName="A相电压" Action="0" DataType="0" Scale="1" OrdNo="1" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ua"></funtion>
+      <funtion FunType="Ub" FunName="B相电压" Action="0" DataType="0" Scale="1" OrdNo="2" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Ub"></funtion>
+      <funtion FunType="Uc" FunName="C相电压" Action="0" DataType="0" Scale="1" OrdNo="3" OrdGrp="0" Unit="V" PointType="5" AlarmModel="10" SubTab="Uc"></funtion>
+      <funtion FunType="Ia" FunName="A相电流" Action="0" DataType="0" Scale="1" OrdNo="4" OrdGrp="0" Unit="A" PointType="5" AlarmModel="10" SubTab="Ia"></funtion>
+      <funtion FunType="Ib" FunName="B相电流" Action="0" DataType="0" Scale="1" OrdNo="5" OrdGrp="1" Unit="A" PointType="5" AlarmModel="10" SubTab="Ib"></funtion>
+      <funtion FunType="Ic" FunName="C相电流" Action="0" DataType="0" Scale="1" OrdNo="6" OrdGrp="1" Unit="A" PointType="5" AlarmModel="10" SubTab="Ic"></funtion>
+      <funtion FunType="Ie0" FunName="零序电流" Action="0" DataType="0" Scale="1" OrdNo="7" OrdGrp="1" Unit="A" PointType="5" AlarmModel="10" SubTab="Ie0"></funtion>
+      <funtion FunType="PFa" FunName="A相功率因数" Action="0" DataType="0" Scale="0" OrdNo="8" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="PFa"></funtion>
+      <funtion FunType="PFb" FunName="B相功率因数" Action="0" DataType="0" Scale="0" OrdNo="9" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="PFb"></funtion>
+      <funtion FunType="PFc" FunName="C相功率因数" Action="0" DataType="0" Scale="0" OrdNo="10" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="PFc"></funtion>
+      <funtion FunType="Pa" FunName="A相有功功率" Action="0" DataType="0" Scale="1" OrdNo="11" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="Pa"></funtion>
+      <funtion FunType="Pb" FunName="B相有功功率" Action="0" DataType="0" Scale="1" OrdNo="12" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="Pb"></funtion>
+      <funtion FunType="Pc" FunName="C相有功功率" Action="0" DataType="0" Scale="1" OrdNo="13" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="Pc"></funtion>
+      <funtion FunType="Qa" FunName="A相无功功率" Action="0" DataType="0" Scale="1" OrdNo="14" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="Qa"></funtion>
+      <funtion FunType="Qb" FunName="B相无功功率" Action="0" DataType="0" Scale="1" OrdNo="15" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="Qb"></funtion>
+      <funtion FunType="Qc" FunName="C相无功功率" Action="0" DataType="0" Scale="1" OrdNo="16" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="Qc"></funtion>
+      <funtion FunType="F" FunName="系统频率" Action="0" DataType="0" Scale="0" OrdNo="17" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="F"></funtion>
+      <funtion FunType="THUa" FunName="A相电压畸变率" Action="0" DataType="0" Scale="0" OrdNo="18" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="THUa"></funtion>
+      <funtion FunType="THUb" FunName="B相电压畸变率" Action="0" DataType="0" Scale="0" OrdNo="19" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="THUb"></funtion>
+      <funtion FunType="THUc" FunName="C相电压畸变率" Action="0" DataType="0" Scale="0" OrdNo="20" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="THUc"></funtion>
+      <funtion FunType="THIa" FunName="A相电流畸变率" Action="0" DataType="0" Scale="0" OrdNo="21" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="THIa"></funtion>
+      <funtion FunType="THIb" FunName="B相电流畸变率" Action="0" DataType="0" Scale="0" OrdNo="22" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="THIb"></funtion>
+      <funtion FunType="THIc" FunName="C相电流畸变率" Action="0" DataType="0" Scale="0" OrdNo="23" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="THIc"></funtion>
+      <funtion FunType="VHUa03" FunName="A相3次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="24" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUa03"></funtion>
+      <funtion FunType="VHUa05" FunName="A相5次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="25" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUa05"></funtion>
+      <funtion FunType="VHUa07" FunName="A相7次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="26" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUa07"></funtion>
+      <funtion FunType="VHUa09" FunName="A相9次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="27" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUa09"></funtion>
+      <funtion FunType="VHUa11" FunName="A相11次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="28" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUa11"></funtion>
+      <funtion FunType="VHUa13" FunName="A相13次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="29" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUa13"></funtion>
+      <funtion FunType="VHUb03" FunName="B相3次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="30" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUb03"></funtion>
+      <funtion FunType="VHUb05" FunName="B相5次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="31" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUb05"></funtion>
+      <funtion FunType="VHUb07" FunName="B相7次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="32" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUb07"></funtion>
+      <funtion FunType="VHUb09" FunName="B相9次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="33" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUb09"></funtion>
+      <funtion FunType="VHUb11" FunName="B相11次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="34" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUb11"></funtion>
+      <funtion FunType="VHUb13" FunName="B相13次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="35" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUb13"></funtion>
+      <funtion FunType="VHUc03" FunName="C相3次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="36" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUc03"></funtion>
+      <funtion FunType="VHUc05" FunName="C相5次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="37" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUc05"></funtion>
+      <funtion FunType="VHUc07" FunName="C相7次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="38" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUc07"></funtion>
+      <funtion FunType="VHUc09" FunName="C相9次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="39" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUc09"></funtion>
+      <funtion FunType="VHUc11" FunName="C相11次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="40" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUc11"></funtion>
+      <funtion FunType="VHUc13" FunName="C相13次电压谐波" Action="0" DataType="0" Scale="0" OrdNo="41" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHUc13"></funtion>
+      <funtion FunType="VHIa03" FunName="A相3次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="42" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIa03"></funtion>
+      <funtion FunType="VHIa05" FunName="A相5次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="43" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIa05"></funtion>
+      <funtion FunType="VHIa07" FunName="A相7次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="44" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIa09"></funtion>
+      <funtion FunType="VHIa09" FunName="A相9次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="45" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIa11"></funtion>
+      <funtion FunType="VHIa11" FunName="A相11次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="46" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIa13"></funtion>
+      <funtion FunType="VHIa13" FunName="A相13次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="47" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIb03"></funtion>
+      <funtion FunType="VHIb03" FunName="B相3次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="48" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIb05"></funtion>
+      <funtion FunType="VHIb05" FunName="B相5次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="49" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIb05"></funtion>
+      <funtion FunType="VHIb07" FunName="B相7次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="50" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIb07"></funtion>
+      <funtion FunType="VHIb09" FunName="B相9次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="51" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIb09"></funtion>
+      <funtion FunType="VHIb11" FunName="B相11次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="52" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIb11"></funtion>
+      <funtion FunType="VHIb13" FunName="B相13次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="53" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIb13"></funtion>
+      <funtion FunType="VHIc03" FunName="C相3次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="54" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIc03"></funtion>
+      <funtion FunType="VHIc05" FunName="C相5次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="55" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIc05"></funtion>
+      <funtion FunType="VHIc07" FunName="C相7次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="56" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIc07"></funtion>
+      <funtion FunType="VHIc09" FunName="C相9次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="57" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIc09"></funtion>
+      <funtion FunType="VHIc11" FunName="C相11次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="58" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIc11"></funtion>
+      <funtion FunType="VHIc13" FunName="C相13次电流谐波" Action="0" DataType="0" Scale="0" OrdNo="59" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="VHIc13"></funtion>
+    </rows>
+  </data>
+
+  -->
+  <!--IEC101-->
+  <!--
+  <data>
+    -->
+  <!--设备类型-->
+  <!--
+    <type Name="二遥箱" IsDefine="0">IEC101</type>
+    -->
+  <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序(测点编号); OrdGrp=0 命令组编号; Unit：单位 PointType：测点类型 SubTab:分库 -->
+  <!--
+    <rows>
+      <funtion FunType="Connected" FunName="设备状态" Action="0" DataType="0" Scale="0" OrdNo="0" OrdGrp="0" Unit="" PointType="8" AlarmModel="30" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx01" FunName="1A短路" Action="0" DataType="0" Scale="0" OrdNo="1" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx02" FunName="1B短路" Action="0" DataType="0" Scale="0" OrdNo="2" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx03" FunName="1C短路" Action="0" DataType="0" Scale="0" OrdNo="3" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx04" FunName="1O短路" Action="0" DataType="0" Scale="0" OrdNo="4" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx05" FunName="2A短路" Action="0" DataType="0" Scale="0" OrdNo="5" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx06" FunName="2B短路" Action="0" DataType="0" Scale="0" OrdNo="6" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx07" FunName="2C短路" Action="0" DataType="0" Scale="0" OrdNo="7" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx08" FunName="2O短路" Action="0" DataType="0" Scale="0" OrdNo="8" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx09" FunName="3A短路" Action="0" DataType="0" Scale="0" OrdNo="9" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx10" FunName="3B短路" Action="0" DataType="0" Scale="0" OrdNo="10" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx11" FunName="3C短路" Action="0" DataType="0" Scale="0" OrdNo="11" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx12" FunName="3O短路" Action="0" DataType="0" Scale="0" OrdNo="12" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx13" FunName="4A短路" Action="0" DataType="0" Scale="0" OrdNo="13" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx14" FunName="4B短路" Action="0" DataType="0" Scale="0" OrdNo="14" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx15" FunName="4C短路" Action="0" DataType="0" Scale="0" OrdNo="15" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYx16" FunName="4O短路" Action="0" DataType="0" Scale="0" OrdNo="16" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc01" FunName="1A负荷电流" Action="0" DataType="0" Scale="0" OrdNo="17" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc02" FunName="1B负荷电流" Action="0" DataType="0" Scale="0" OrdNo="18" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc03" FunName="1C负荷电流" Action="0" DataType="0" Scale="0" OrdNo="19" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc04" FunName="1O负荷电流" Action="0" DataType="0" Scale="0" OrdNo="20" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc05" FunName="2A负荷电流" Action="0" DataType="0" Scale="0" OrdNo="21" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc06" FunName="2B负荷电流" Action="0" DataType="0" Scale="0" OrdNo="22" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc07" FunName="2C负荷电流" Action="0" DataType="0" Scale="0" OrdNo="23" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc08" FunName="2O负荷电流" Action="0" DataType="0" Scale="0" OrdNo="24" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc09" FunName="3A负荷电流" Action="0" DataType="0" Scale="0" OrdNo="25" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc10" FunName="3B负荷电流" Action="0" DataType="0" Scale="0" OrdNo="26" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc11" FunName="3C负荷电流" Action="0" DataType="0" Scale="0" OrdNo="27" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc12" FunName="3O负荷电流" Action="0" DataType="0" Scale="0" OrdNo="28" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc13" FunName="4A负荷电流" Action="0" DataType="0" Scale="0" OrdNo="29" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc14" FunName="4B负荷电流" Action="0" DataType="0" Scale="0" OrdNo="30" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc15" FunName="4C负荷电流" Action="0" DataType="0" Scale="0" OrdNo="31" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+      <funtion FunType="IECYc16" FunName="4O负荷电流" Action="0" DataType="0" Scale="0" OrdNo="32" OrdGrp="1" Unit="" PointType="5" AlarmModel="10" SubTab="IEC"></funtion>
+    </rows>
+  </data>
+
+  -->
+  <!--YDT600-->
+  <!--
+  <data>
+    -->
+  <!--设备类型-->
+  <!--
+    <type Name="母排" IsDefine="0">YDT600</type>
+    -->
+  <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序(测点编号); OrdGrp=0 命令组编号; Unit：单位 PointType：测点类型 SubTab:分库 -->
+  <!--
+    <rows>
+      <funtion FunType="Connected" FunName="设备状态" Action="0" DataType="0" Scale="0" OrdNo="0" OrdGrp="0" Unit="" PointType="8" AlarmModel="30" SubTab="WS"></funtion>
+      <funtion FunType="1A01" FunName="1A相温度" Action="0" DataType="0" Scale="1" OrdNo="1" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+      <funtion FunType="1A02" FunName="1A相电量" Action="0" DataType="0" Scale="0" OrdNo="2" OrdGrp="0" Unit="1mV" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+      <funtion FunType="1A03" FunName="1A发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="3" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1A04" FunName="1A信号强度" Action="0" DataType="0" Scale="0" OrdNo="4" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1A05" FunName="1A模块版本" Action="0" DataType="0" Scale="0" OrdNo="5" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1A06" FunName="1A备用" Action="0" DataType="0" Scale="0" OrdNo="6" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1B01" FunName="1B相温度" Action="0" DataType="0" Scale="1" OrdNo="7" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1B02" FunName="1B相电量" Action="0" DataType="0" Scale="0" OrdNo="8" OrdGrp="0" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1B03" FunName="1B发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="9" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1B04" FunName="1B信号强度" Action="0" DataType="0" Scale="0" OrdNo="10" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1B05" FunName="1B模块版本" Action="0" DataType="0" Scale="0" OrdNo="11" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1B06" FunName="1B备用" Action="0" DataType="0" Scale="0" OrdNo="12" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1C01" FunName="1C相温度" Action="0" DataType="0" Scale="1" OrdNo="13" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1C02" FunName="1C相电量" Action="0" DataType="0" Scale="0" OrdNo="14" OrdGrp="0" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1C03" FunName="1C发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="15" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1C04" FunName="1C信号强度" Action="0" DataType="0" Scale="0" OrdNo="16" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1C05" FunName="1C模块版本" Action="0" DataType="0" Scale="0" OrdNo="17" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="1C06" FunName="1C备用" Action="0" DataType="0" Scale="0" OrdNo="18" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2A01" FunName="2A相温度" Action="0" DataType="0" Scale="1" OrdNo="19" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2A02" FunName="2A相电量" Action="0" DataType="0" Scale="0" OrdNo="20" OrdGrp="0" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2A03" FunName="2A发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="21" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2A04" FunName="2A信号强度" Action="0" DataType="0" Scale="0" OrdNo="22" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2A05" FunName="2A模块版本" Action="0" DataType="0" Scale="0" OrdNo="23" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2A06" FunName="2A备用" Action="0" DataType="0" Scale="0" OrdNo="24" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2B01" FunName="2B相温度" Action="0" DataType="0" Scale="1" OrdNo="25" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2B02" FunName="2B相电量" Action="0" DataType="0" Scale="0" OrdNo="26" OrdGrp="0" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2B03" FunName="2B发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="17" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2B04" FunName="2B信号强度" Action="0" DataType="0" Scale="0" OrdNo="28" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2B05" FunName="2B模块版本" Action="0" DataType="0" Scale="0" OrdNo="29" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2B06" FunName="2B备用" Action="0" DataType="0" Scale="0" OrdNo="30" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2C01" FunName="2C相温度" Action="0" DataType="0" Scale="1" OrdNo="31" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2C02" FunName="2C相电量" Action="0" DataType="0" Scale="0" OrdNo="32" OrdGrp="0" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2C03" FunName="2C发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="33" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2C04" FunName="2C信号强度" Action="0" DataType="0" Scale="0" OrdNo="34" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2C05" FunName="2C模块版本" Action="0" DataType="0" Scale="0" OrdNo="35" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="2C06" FunName="2C备用" Action="0" DataType="0" Scale="0" OrdNo="36" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3A01" FunName="3A相温度" Action="0" DataType="0" Scale="1" OrdNo="37" OrdGrp="1" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3A02" FunName="3A相电量" Action="0" DataType="0" Scale="0" OrdNo="38" OrdGrp="1" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3A03" FunName="3A发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="39" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3A04" FunName="3A信号强度" Action="0" DataType="0" Scale="0" OrdNo="40" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3A05" FunName="3A模块版本" Action="0" DataType="0" Scale="0" OrdNo="41" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3A06" FunName="3A备用" Action="0" DataType="0" Scale="0" OrdNo="42" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3B01" FunName="3B相温度" Action="0" DataType="0" Scale="1" OrdNo="43" OrdGrp="1" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3B02" FunName="3B相电量" Action="0" DataType="0" Scale="0" OrdNo="44" OrdGrp="1" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3B03" FunName="3B发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="45" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3B04" FunName="3B信号强度" Action="0" DataType="0" Scale="0" OrdNo="46" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3B05" FunName="3B模块版本" Action="0" DataType="0" Scale="0" OrdNo="47" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3B06" FunName="3B备用" Action="0" DataType="0" Scale="0" OrdNo="48" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3C01" FunName="3C相温度" Action="0" DataType="0" Scale="1" OrdNo="49" OrdGrp="1" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3C02" FunName="3C相电量" Action="0" DataType="0" Scale="0" OrdNo="50" OrdGrp="1" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3C03" FunName="3C发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="51" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3C04" FunName="3C信号强度" Action="0" DataType="0" Scale="0" OrdNo="52" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3C05" FunName="3C模块版本" Action="0" DataType="0" Scale="0" OrdNo="53" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="3C06" FunName="3C备用" Action="0" DataType="0" Scale="0" OrdNo="54" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4A01" FunName="4A相温度" Action="0" DataType="0" Scale="1" OrdNo="55" OrdGrp="1" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4A02" FunName="4A相电量" Action="0" DataType="0" Scale="0" OrdNo="56" OrdGrp="1" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4A03" FunName="4A发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="57" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4A04" FunName="4A信号强度" Action="0" DataType="0" Scale="0" OrdNo="58" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4A05" FunName="4A模块版本" Action="0" DataType="0" Scale="0" OrdNo="59" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4A06" FunName="4A备用" Action="0" DataType="0" Scale="0" OrdNo="60" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4B01" FunName="4B相温度" Action="0" DataType="0" Scale="1" OrdNo="61" OrdGrp="1" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4B02" FunName="4B相电量" Action="0" DataType="0" Scale="0" OrdNo="62" OrdGrp="1" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4B03" FunName="4B发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="63" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4B04" FunName="4B信号强度" Action="0" DataType="0" Scale="0" OrdNo="64" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4B05" FunName="4B模块版本" Action="0" DataType="0" Scale="0" OrdNo="65" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4B06" FunName="4B备用" Action="0" DataType="0" Scale="0" OrdNo="66" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4C01" FunName="4C相温度" Action="0" DataType="0" Scale="1" OrdNo="67" OrdGrp="1" Unit="℃" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4C02" FunName="4C相电量" Action="0" DataType="0" Scale="0" OrdNo="68" OrdGrp="1" Unit="1mV" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4C03" FunName="4C发送模块序号" Action="0" DataType="0" Scale="0" OrdNo="69" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4C04" FunName="4C信号强度" Action="0" DataType="0" Scale="0" OrdNo="70" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4C05" FunName="4C模块版本" Action="0" DataType="0" Scale="0" OrdNo="71" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="4C06" FunName="4C备用" Action="0" DataType="0" Scale="0" OrdNo="72" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI01" FunName="存储器状态" Action="0" DataType="0" Scale="0" OrdNo="73" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI02" FunName="B模块1状态" Action="0" DataType="0" Scale="0" OrdNo="74" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI03" FunName="B模块2状态" Action="0" DataType="0" Scale="0" OrdNo="75" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI04" FunName="第一组A相告警状态" Action="0" DataType="0" Scale="0" OrdNo="76" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI05" FunName="第一组B相告警状态" Action="0" DataType="0" Scale="0" OrdNo="77" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI06" FunName="第一组C相告警状态" Action="0" DataType="0" Scale="0" OrdNo="78" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI07" FunName="第二组A相告警状态" Action="0" DataType="0" Scale="0" OrdNo="79" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI08" FunName="第二组B相告警状态" Action="0" DataType="0" Scale="0" OrdNo="80" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI09" FunName="第二组C相告警状态" Action="0" DataType="0" Scale="0" OrdNo="81" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI10" FunName="第一组A相预告警状态" Action="0" DataType="0" Scale="0" OrdNo="82" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI11" FunName="第一组B相预告警状态" Action="0" DataType="0" Scale="0" OrdNo="83" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI12" FunName="第一组D相预告警状态" Action="0" DataType="0" Scale="0" OrdNo="84" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI13" FunName="第二组A相预告警状态" Action="0" DataType="0" Scale="0" OrdNo="85" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI14" FunName="第二组B相预告警状态" Action="0" DataType="0" Scale="0" OrdNo="86" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+      <funtion FunType="DI15" FunName="第二组D相预告警状态" Action="0" DataType="0" Scale="0" OrdNo="87" OrdGrp="1" Unit="" PointType="5" AlarmModel="0" SubTab="WS"></funtion>
+    </rows>
+  </data>
+
+  -->
+  <!--S3-RHT20-->
+  <!--
+  <data>
+    -->
+  <!--设备类型-->
+  <!--
+    <type Name="温湿度" IsDefine="0">S3-RHT20</type>
+    -->
+  <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序(测点编号); OrdGrp=0 命令组编号; Unit：单位 PointType：测点类型 SubTab:分库 -->
+  <!--
+    <rows>
+      <funtion FunType="Connected" FunName="设备状态" Action="0" DataType="0" Scale="2" OrdNo="0" OrdGrp="0" Unit="" PointType="8" AlarmModel="30" SubTab="WS"></funtion>
+      <funtion FunType="WS01" FunName="湿度" Action="0" DataType="0" Scale="2" OrdNo="1" OrdGrp="0" Unit="RH" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+      <funtion FunType="WS02" FunName="实际温度" Action="0" DataType="0" Scale="2" OrdNo="2" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+      <funtion FunType="WS03" FunName="露点温度" Action="0" DataType="0" Scale="2" OrdNo="3" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+    </rows>
+  </data>
+
+  -->
+  <!--BWDK-3206F-->
+  <!--
+  <data>
+    -->
+  <!--设备类型-->
+  <!--
+    <type Name="温控仪" IsDefine="0">BWDK-3206F</type>
+    -->
+  <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序(测点编号); OrdGrp=0 命令组编号; Unit：单位 PointType：测点类型 SubTab:分库 -->
+  <!--
+    <rows>
+      <funtion FunType="Connected" FunName="设备状态" Action="0" DataType="0" Scale="2" OrdNo="0" OrdGrp="0" Unit="" PointType="8" AlarmModel="30" SubTab="WS"></funtion>
+      <funtion FunType="Ta" FunName="A相温度数据" Action="0" DataType="0" Scale="1" OrdNo="1" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+      <funtion FunType="Tb" FunName="B相温度数据" Action="0" DataType="0" Scale="1" OrdNo="2" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+      <funtion FunType="Tc" FunName="C相温度数据" Action="0" DataType="0" Scale="1" OrdNo="3" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+      <funtion FunType="Td" FunName="D相温度数据" Action="0" DataType="0" Scale="1" OrdNo="4" OrdGrp="0" Unit="℃" PointType="5" AlarmModel="10" SubTab="WS"></funtion>
+      <funtion FunType="DO1" FunName="代表风机控制输出位" Action="0" DataType="0" Scale="0" OrdNo="5" OrdGrp="1" Unit="" PointType="5" AlarmModel="20" SubTab="WS"></funtion>
+      <funtion FunType="DO2" FunName="代表超温跳闸输出位" Action="0" DataType="0" Scale="0" OrdNo="6" OrdGrp="1" Unit="" PointType="5" AlarmModel="20" SubTab="WS"></funtion>
+      <funtion FunType="DO3" FunName="代表超温报警输出位 " Action="0" DataType="0" Scale="0" OrdNo="7" OrdGrp="1" Unit="" PointType="5" AlarmModel="20" SubTab="WS"></funtion>
+      <funtion FunType="DO4" FunName="代表机房风扇控制输出位  " Action="0" DataType="0" Scale="0" OrdNo="8" OrdGrp="1" Unit="" PointType="5" AlarmModel="20" SubTab="WS"></funtion>
+      <funtion FunType="DO5" FunName="代表故障报警输出位" Action="0" DataType="0" Scale="0" OrdNo="9" OrdGrp="1" Unit="" PointType="5" AlarmModel="20" SubTab="WS"></funtion>
+    </rows>
+  </data>
+
+  -->
+  <!--DoorCtl_V6.9.21-->
+  <!--
+  <data>
+    -->
+  <!--设备类型-->
+  <!--
+    <type Name="门禁设备" IsDefine="100">DoorCtl_V6.9.21</type>
+    -->
+  <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序(测点编号); OrdGrp=0 命令组编号; Unit：单位 PointType：测点类型 SubTab:分库 -->
+  <!--
+    <rows>
+      <funtion FunType="Connected" FunName="设备状态" Action="0" DataType="0" Scale="0" OrdNo="0" OrdGrp="0" Unit="" PointType="8" AlarmModel="30" SubTab="DVC"></funtion>
+      <funtion FunType="DVCSs1" FunName="继电器1" Action="0" DataType="0" Scale="0" OrdNo="1" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCSs2" FunName="继电器2" Action="0" DataType="0" Scale="0" OrdNo="2" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCSs3" FunName="继电器3" Action="0" DataType="0" Scale="0" OrdNo="3" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCSs4" FunName="继电器4" Action="0" DataType="0" Scale="0" OrdNo="4" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCPs1" FunName="按钮1" Action="0" DataType="0" Scale="0" OrdNo="5" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCPs2" FunName="按钮2" Action="0" DataType="0" Scale="0" OrdNo="6" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCPs3" FunName="按钮3" Action="0" DataType="0" Scale="0" OrdNo="7" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCPs4" FunName="按钮4" Action="0" DataType="0" Scale="0" OrdNo="8" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCMC1" FunName="门磁1" Action="0" DataType="0" Scale="0" OrdNo="9" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCMC2" FunName="门磁2" Action="0" DataType="0" Scale="0" OrdNo="10" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCMC3" FunName="门磁3" Action="0" DataType="0" Scale="0" OrdNo="11" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCMC4" FunName="门磁4" Action="0" DataType="0" Scale="0" OrdNo="12" OrdGrp="0" Unit="" PointType="5" AlarmModel="20" SubTab="DVC"></funtion>
+      <funtion FunType="DVCIO" FunName="刷卡信息" Action="0" DataType="0" Scale="0" OrdNo="13" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="DVC"></funtion>
+      <funtion FunType="DVCErr" FunName="故障情况" Action="0" DataType="0" Scale="0" OrdNo="14" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="DVC"></funtion>
+      <funtion FunType="DVCICnt" FunName="刷卡总数" Action="0" DataType="0" Scale="0" OrdNo="15" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="DVC"></funtion>
+      <funtion FunType="DVCPCnt" FunName="权限总数" Action="0" DataType="0" Scale="0" OrdNo="16" OrdGrp="0" Unit="" PointType="5" AlarmModel="0" SubTab="DVC"></funtion>
+    </rows>
+  </data>
+
+  -->
+  <!--Video-->
+  <!--
+  <data>
+    -->
+  <!--设备类型-->
+  <!--
+    <type Name="视频设备" IsDefine="200">Video</type>
+    -->
+  <!-- FunType:功能类型；FunName:功能名称；Action：=0读=1读写=2事件；DataType：0 默认是字符串；Scale：目标值长度；OrdNo=0 排序(测点编号); OrdGrp=0 命令组编号; Unit：单位 PointType：测点类型 SubTab:分库 -->
+  <!--
+    <rows>
+      <funtion FunType="Connected" FunName="设备状态" Action="0" DataType="0" Scale="0" OrdNo="0" OrdGrp="0" Unit="" PointType="8" AlarmModel="30" SubTab="WS"></funtion>
+    </rows>
+  </data>-->
+
+
+</root>
